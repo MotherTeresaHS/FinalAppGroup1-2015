@@ -7,6 +7,9 @@
 	<key>Buffer Order</key>
 	<array>
 		<string>Main</string>
+		<string>SplashScreen</string>
+		<string>MainScreen</string>
+		<string>HelperClass</string>
 	</array>
 	<key>Description</key>
 	<string>No description available</string>

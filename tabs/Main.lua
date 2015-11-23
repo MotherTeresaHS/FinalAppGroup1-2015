@@ -1,8 +1,26 @@
--- Group 1
+-- Main
+-- LessonSix
+
+-- Created by: Kyle Boulay
+-- Created on: Nov 11(13) 2015
+-- Created for: ICS2O
+-- This is the main starting point.
 
 -- Use this function to perform your initial setup
 function setup()
-    print("Hello World!")
+    
+    supportedOrientations(LANDSCAPE_ANY)
+    displayMode(FULLSCREEN)
+    noFill()
+    noSmooth()
+    noStroke()
+    pushStyle()
+    
+    -- create the scenes
+    Scene("splash", SplashScreenScene)
+    Scene("play", MainScene)
+    
+    Scene.Change("splash")
 end
 
 -- This function gets called once every frame
@@ -10,10 +28,12 @@ function draw()
     -- This sets a dark background color 
     background(40, 40, 50)
 
-    -- This sets the line thickness
-    strokeWidth(5)
-
-    -- Do your drawing here
+    Scene.Draw()
     
 end
 
+function touched (touch)
+    
+    Scene.Touched(touch)
+    
+end
