@@ -1,4 +1,4 @@
--- MainScene
+-- MainMenu
 -- FinalAppGroup1-2015
 
 -- Created by: Alexandra Kuhn
@@ -6,23 +6,24 @@
 -- Created for: ICS2O
 -- This is the second scene.
 
-MainScene = class()
+MainMenu = class()
 
 -- global to this file
 local moveToMainGameButton
-local moveToArtworkButton
+local moveToTutorialButton
 local moveToStoreButton
+local moveToSettings
+local moveToCredits
 
-function MainScene:init()
-    
-    --sprite("Dropbox:Red Forward Circle Button")
+
+function MainMenu:init()
     
     moveToMainGameButton = Button("Dropbox:Green Forward Circle Button", vec2(WIDTH/2+100, HEIGHT/2))
     moveToArtworkButton = Button("Dropbox:Blue Forward Circle Button", vec2(WIDTH/2+300, HEIGHT/2))
     moveToStoreButton = Button("Dropbox:Red Forward Circle Button", vec2(WIDTH/2, HEIGHT/2+200))
 end
 
-function MainScene:draw()
+function MainMenu:draw()
     -- Codea does not automatically call this method
     
     background(67, 70, 72, 255)
@@ -31,7 +32,7 @@ function MainScene:draw()
     moveToStoreButton:draw()
 end
 
-function MainScene:touched(touch)
+function MainMenu:touched(touch)
     -- Codea does not automatically call this method
     
     moveToMainGameButton:touched(touch)

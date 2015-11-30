@@ -19,13 +19,22 @@ function setup()
     pushStyle()
     
     -- create the scenes
-    Scene("splash", SplashScreenScene)
+    Scene("companylogo", CompanyLogo)
+    Scene("gamelogo", GameLogo)
     Scene("play", MainScene)
-    Scene("mainGame", MainGame)
+    Scene("maingame", MainGame)
     Scene("artwork", Artwork)
     Scene("store", Store)
+    Scene("hats", StoreHats)
+    Scene("shirts", StoreShirts)
+    Scene("pants", StorePants)
+    Scene("glasses", StoreGlasses)
+    Scene("belts", StoreBelts)
+    Scene("socks", StoreSocks)
+    Scene("gloves", StoreGloves)
     
-    Scene.Change("splash")
+       
+    Scene.Change("companylogo")
 end
 
 -- This function gets called once every frame
@@ -34,11 +43,9 @@ function draw()
     background(40, 40, 50)
 
     Scene.Draw()
-    
 end
 
 function touched (touch)
     
     Scene.Touched(touch)
-    
 end

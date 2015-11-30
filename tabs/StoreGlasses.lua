@@ -1,16 +1,14 @@
--- MainGame
+StoreGlasses = class()
 
-MainGame = class()
-
-function MainGame:init()
+function StoreGlasses:init()
     -- you can accept and set parameters here
-   
+    
 end
 
-function MainGame:draw()
+function StoreGlasses:draw()
     -- Codea does not automatically call this method
 end
 
-function MainGame:touched(touch)
+function StoreGlasses:touched(touch)
     -- Codea does not automatically call this method
 end

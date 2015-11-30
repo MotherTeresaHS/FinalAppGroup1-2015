@@ -1,16 +1,14 @@
--- Artwork
+StoreBelts = class()
 
-Artwork = class()
-
-function Artwork:init(x)
+function StoreBelts:init()
     -- you can accept and set parameters here
-    self.x = x
+    
 end
 
-function Artwork:draw()
+function StoreBelts:draw()
     -- Codea does not automatically call this method
 end
 
-function Artwork:touched(touch)
+function StoreBelts:touched(touch)
     -- Codea does not automatically call this method
 end

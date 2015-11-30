@@ -2,9 +2,9 @@
 
 Store = class()
 
-function Store:init(x)
+function Store:init()
     -- you can accept and set parameters here
-    self.x = x
+    
 end
 
 function Store:draw()
