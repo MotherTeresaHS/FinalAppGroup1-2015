@@ -2,7 +2,6 @@ StoreHats = class()
 
 function StoreHats:init()
     -- you can accept and set parameters here
-    
 end
 
 function StoreHats:draw()

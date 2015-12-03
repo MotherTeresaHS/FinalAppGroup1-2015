@@ -2,7 +2,6 @@ StoreGlasses = class()
 
 function StoreGlasses:init()
     -- you can accept and set parameters here
-    
 end
 
 function StoreGlasses:draw()

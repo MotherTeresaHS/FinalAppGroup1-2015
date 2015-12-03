@@ -9,6 +9,7 @@ end
 
 function MainGame:draw()
     -- Codea does not automatically call this method
+    background(0, 255, 69, 255)
 end
 
 function MainGame:touched(touch)

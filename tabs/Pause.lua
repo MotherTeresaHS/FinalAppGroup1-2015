@@ -1,13 +1,13 @@
-StoreShirts = class()
+Pause = class()
 
-function StoreShirts:init()
+function Pause:init()
     -- you can accept and set parameters here
 end
 
-function StoreShirts:draw()
+function Pause:draw()
     -- Codea does not automatically call this method
 end
 
-function StoreShirts:touched(touch)
+function Pause:touched(touch)
     -- Codea does not automatically call this method
 end

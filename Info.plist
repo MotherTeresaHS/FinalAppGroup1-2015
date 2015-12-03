@@ -11,6 +11,10 @@
 		<string>GameLogo</string>
 		<string>MainMenu</string>
 		<string>MainGame</string>
+		<string>Pause</string>
+		<string>Tutorial</string>
+		<string>Credits</string>
+		<string>Settings</string>
 		<string>Store</string>
 		<string>StoreHats</string>
 		<string>StoreShirts</string>

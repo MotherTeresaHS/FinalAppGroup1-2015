@@ -2,7 +2,6 @@ StoreGloves = class()
 
 function StoreGloves:init()
     -- you can accept and set parameters here
-    
 end
 
 function StoreGloves:draw()

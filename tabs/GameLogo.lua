@@ -1,5 +1,6 @@
 GameLogo = class()
--- global to thus file
+
+-- global to this file
 local startTime
 
 function GameLogo:init()
@@ -9,15 +10,17 @@ end
 
 function GameLogo:draw()
     -- Codea does not automatically call this method
-    background(255, 205, 0, 255)
+    sprite("Dropbox:GameLogo", WIDTH/2, HEIGHT/2)
     print(ElapsedTime)
-    print("End time is " .. startTime + 6)
-    if(startTime + 6 < ElapsedTime) then
-        Scene.Change("maingame")
+    print("End time is " .. startTime + 3)
+    
+    if(startTime + 3 < ElapsedTime) then
+        Scene.Change("mainmenu")
         print("The end time is " .. ElapsedTime)
-        end
+    end
 end
 
 function GameLogo:touched(touch)
     -- Codea does not automatically call this method
+    Scene.Touched(touch)
 end

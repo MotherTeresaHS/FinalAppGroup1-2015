@@ -2,7 +2,6 @@ StoreBelts = class()
 
 function StoreBelts:init()
     -- you can accept and set parameters here
-    
 end
 
 function StoreBelts:draw()
