@@ -15,13 +15,16 @@ local moveToTutorialButton
 local moveToStoreButton
 local moveToSettingsButton
 local moveToCreditsButton
+local letterDropRobot
+local letterDropRobotSelected = false
 
 function MainMenu:init()
-    moveToMainGameButton = Button("Dropbox:Green Forward Circle Button", vec2(WIDTH/2+100, HEIGHT/2))
-    moveToTutorialButton = Button("Dropbox:Blue Forward Circle Button", vec2(WIDTH/2+300, HEIGHT/2))
-    moveToStoreButton = Button("Dropbox:Purple Forward Circle Button", vec2(WIDTH/2, HEIGHT/2+20))
+    moveToMainGameButton = Button("Dropbox:Green Forward Circle Button", vec2(WIDTH/2, HEIGHT/2+110))
+    moveToTutorialButton = Button("Dropbox:Blue Forward Circle Button", vec2(WIDTH/2, HEIGHT/2-40))
+    moveToStoreButton = Button("Dropbox:Purple Forward Circle Button", vec2(WIDTH/2, HEIGHT/2-190))
     moveToSettingsButton = Button("Dropbox:Teal Settings Button", vec2(WIDTH/2+300, HEIGHT/2+420))
-    moveToCreditsButton = Button("Dropbox:Red Forward Circle Button", vec2(WIDTH/2, HEIGHT/2+200))
+    moveToCreditsButton = Button("Dropbox:Red Forward Circle Button", vec2(WIDTH/2, HEIGHT/2-340))
+    letterDropRobot = Button("Planet Cute:Character Princess Girl", vec2(WIDTH/2+250, HEIGHT/2-350))
 end
 
 function MainMenu:draw()
@@ -32,6 +35,10 @@ function MainMenu:draw()
     moveToStoreButton:draw()
     moveToSettingsButton:draw()
     moveToCreditsButton:draw()
+    letterDropRobot:draw()
+    if (letterDropRobotSelected == true) then
+        text("Welcome to Letter Drop!", WIDTH/2+240, HEIGHT/2-275)
+    end
 end
 
 function MainMenu:touched(touch)
@@ -41,6 +48,7 @@ function MainMenu:touched(touch)
     moveToStoreButton:touched(touch)
     moveToSettingsButton:touched(touch)
     moveToCreditsButton:touched(touch)
+    letterDropRobot:touched(touch)
     
     if(moveToMainGameButton.selected == true) then
         Scene.Change("mainGame")
@@ -57,4 +65,8 @@ function MainMenu:touched(touch)
     if(moveToCreditsButton.selected == true) then
         Scene.Change("credits")
     end
+    if(letterDropRobot.selected == true) then
+        letterDropRobotSelected = true
+    end
+    
 end
