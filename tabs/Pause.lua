@@ -1,16 +1,13 @@
--- Artwork
+Pause = class()
 
-Artwork = class()
-
-function Artwork:init(x)
+function Pause:init()
     -- you can accept and set parameters here
-    self.x = x
 end
 
-function Artwork:draw()
+function Pause:draw()
     -- Codea does not automatically call this method
 end
 
-function Artwork:touched(touch)
+function Pause:touched(touch)
     -- Codea does not automatically call this method
 end

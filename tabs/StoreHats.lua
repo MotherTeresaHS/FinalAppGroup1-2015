@@ -1,17 +1,13 @@
--- MainGame
+StoreHats = class()
 
-MainGame = class()
-
-function MainGame:init()
+function StoreHats:init()
     -- you can accept and set parameters here
-   
 end
 
-function MainGame:draw()
+function StoreHats:draw()
     -- Codea does not automatically call this method
-    background(0, 255, 69, 255)
 end
 
-function MainGame:touched(touch)
+function StoreHats:touched(touch)
     -- Codea does not automatically call this method
 end

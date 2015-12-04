@@ -10,35 +10,39 @@
 
 -- Use this function to perform your initial setup
 function setup()
-    
-    supportedOrientations(LANDSCAPE_ANY)
+    supportedOrientations(PORTRAIT_ANY)
     displayMode(FULLSCREEN)
     noFill()
     noSmooth()
     noStroke()
     pushStyle()
-    
     -- create the scenes
-    Scene("splash", SplashScreenScene)
-    Scene("play", MainScene)
-    Scene("mainGame", MainGame)
-    Scene("artwork", Artwork)
+    Scene("companylogo", CompanyLogo)
+    Scene("gamelogo", GameLogo)
+    Scene("mainmenu", MainMenu)
+    Scene("maingame", MainGame)
+    Scene("pause", PauseScreen)
+    Scene("tutorial", Tutorial)
+    Scene("credits", Credits)
+    Scene("settings", Settings)
     Scene("store", Store)
-    
-    Scene.Change("splash")
+    Scene("hats", StoreHats)
+    Scene("shirts", StoreShirts)
+    Scene("pants", StorePants)
+    Scene("glasses", StoreGlasses)
+    Scene("belts", StoreBelts)
+    Scene("socks", StoreSocks)
+    Scene("gloves", StoreGloves)
+    Scene.Change("companylogo")
 end
 
 -- This function gets called once every frame
 function draw()
     -- This sets a dark background color 
     background(40, 40, 50)
-
     Scene.Draw()
-    
 end
 
 function touched (touch)
-    
     Scene.Touched(touch)
-    
 end

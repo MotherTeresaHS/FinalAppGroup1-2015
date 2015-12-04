@@ -1,17 +1,13 @@
--- MainGame
+StoreGloves = class()
 
-MainGame = class()
-
-function MainGame:init()
+function StoreGloves:init()
     -- you can accept and set parameters here
-   
 end
 
-function MainGame:draw()
+function StoreGloves:draw()
     -- Codea does not automatically call this method
-    background(0, 255, 69, 255)
 end
 
-function MainGame:touched(touch)
+function StoreGloves:touched(touch)
     -- Codea does not automatically call this method
 end

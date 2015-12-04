@@ -1,17 +1,13 @@
--- MainGame
+StoreSocks = class()
 
-MainGame = class()
-
-function MainGame:init()
+function StoreSocks:init()
     -- you can accept and set parameters here
-   
 end
 
-function MainGame:draw()
+function StoreSocks:draw()
     -- Codea does not automatically call this method
-    background(0, 255, 69, 255)
 end
 
-function MainGame:touched(touch)
+function StoreSocks:touched(touch)
     -- Codea does not automatically call this method
 end

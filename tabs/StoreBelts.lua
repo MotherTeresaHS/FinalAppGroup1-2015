@@ -1,17 +1,13 @@
--- MainGame
+StoreBelts = class()
 
-MainGame = class()
-
-function MainGame:init()
+function StoreBelts:init()
     -- you can accept and set parameters here
-   
 end
 
-function MainGame:draw()
+function StoreBelts:draw()
     -- Codea does not automatically call this method
-    background(0, 255, 69, 255)
 end
 
-function MainGame:touched(touch)
+function StoreBelts:touched(touch)
     -- Codea does not automatically call this method
 end
