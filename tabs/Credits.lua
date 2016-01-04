@@ -11,7 +11,12 @@ end
 function Credits:draw()
     -- Codea does not automatically call this method
     background(20, 0, 255, 255)
+    fill(255, 255, 255, 255)
+    font("Palatino-Bold")
+    fontSize(75)
     moveToMainMenuButton:draw()
+    text("Credits", WIDTH/2, HEIGHT/2+300)
+    text("Main Menu")
 end
 
 function Credits:touched(touch)

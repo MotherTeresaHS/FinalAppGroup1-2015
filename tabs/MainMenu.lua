@@ -17,29 +17,47 @@ local moveToSettingsButton
 local moveToCreditsButton
 local letterDropRobot
 local letterDropRobotSelected = false
+local letterDropRobotWait = false
+local timeSinceRobotSelected
 
 function MainMenu:init()
     moveToMainGameButton = Button("Dropbox:Green Forward Circle Button", vec2(WIDTH/2, HEIGHT/2+110))
     moveToTutorialButton = Button("Dropbox:Blue Forward Circle Button", vec2(WIDTH/2, HEIGHT/2-40))
     moveToStoreButton = Button("Dropbox:Purple Forward Circle Button", vec2(WIDTH/2, HEIGHT/2-190))
     moveToSettingsButton = Button("Dropbox:Teal Settings Button", vec2(WIDTH/2+300, HEIGHT/2+420))
-    moveToCreditsButton = Button("Dropbox:Red Forward Circle Button", vec2(WIDTH/2, HEIGHT/2-340))
-    letterDropRobot = Button("Planet Cute:Character Princess Girl", vec2(WIDTH/2+250, HEIGHT/2-350))
+    moveToCreditsButton = Button("Dropbox:creditsButton", vec2(WIDTH/2, HEIGHT/2-340))
+    letterDropRobot = Button("Planet Cute:Character Princess Girl", vec2(WIDTH/2+235, HEIGHT/2-360))
 end
 
 function MainMenu:draw()
     -- Codea does not automatically call this method
     background(0, 153, 255, 255)
+    fill(255, 255, 255, 255)
+    font("Palatino-Bold")
     moveToMainGameButton:draw()
     moveToTutorialButton:draw()
     moveToStoreButton:draw()
     moveToSettingsButton:draw()
     moveToCreditsButton:draw()
     letterDropRobot:draw()
+    fontSize(75)
+    text("Letter Drop", WIDTH/2, HEIGHT/2+300)
+    fontSize(25)
     if (letterDropRobotSelected == true) then
-        text("Welcome to Letter Drop!", WIDTH/2+240, HEIGHT/2-275)
+        text("Welcome to", WIDTH/2+240, HEIGHT/2-275)
+        text("Letter Drop!", WIDTH/2+240, HEIGHT/2-300)
+    end
+    if (letterDropRobotWait == true) then
+        background(0, 153, 255, 255)
+    end
+    if (letterDropRobotSelected == true) then
+        if (timeSinceRobotSelected + 3 < ElapsedTime) then
+            letterDropRobotSelected = false
+        end
     end
 end
+
+
 
 function MainMenu:touched(touch)
     -- Codea does not automatically call this method
@@ -51,7 +69,7 @@ function MainMenu:touched(touch)
     letterDropRobot:touched(touch)
     
     if(moveToMainGameButton.selected == true) then
-        Scene.Change("mainGame")
+        Scene.Change("maingame")
     end
     if(moveToTutorialButton.selected == true) then
         Scene.Change("tutorial")
@@ -67,6 +85,6 @@ function MainMenu:touched(touch)
     end
     if(letterDropRobot.selected == true) then
         letterDropRobotSelected = true
+        timeSinceRobotSelected = ElapsedTime
     end
-    
 end

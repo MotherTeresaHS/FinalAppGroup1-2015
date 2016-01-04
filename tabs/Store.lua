@@ -10,8 +10,12 @@ end
 
 function Store:draw()
     -- Codea does not automatically call this method
-    background(0, 255, 2, 255)
+    background(69, 113, 64, 255)
+    fill(255, 255, 255, 255)
+    font("Palatino-Bold")
+    fontSize(75)
     moveToMainMenuButton:draw()
+    text("Store", WIDTH/2, HEIGHT/2+300)
 end
 
 function Store:touched(touch)

@@ -8,6 +8,8 @@
 
 -- Test commit by Mr.Coxall
 
+-- global to this program
+
 -- Use this function to perform your initial setup
 function setup()
     supportedOrientations(PORTRAIT_ANY)
