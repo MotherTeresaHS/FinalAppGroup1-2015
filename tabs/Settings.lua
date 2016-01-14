@@ -8,8 +8,8 @@ local pauseMusicButton
 function Settings:init()
     -- you can accept and set parameters here 
     moveToMainMenuButton = Button("Dropbox:Teal Back Circle Button", vec2(WIDTH/2-300, HEIGHT/2+420))
-    playMusicButton = Button("Dropbox:Teal Move Scene Forward Button", vec2(WIDTH/2+150, HEIGHT/2))
-    pauseMusicButton = Button ("Dropbox:Teal Pause Button", vec2(WIDTH/2-150, HEIGHT/2))
+    playMusicButton = Button("Dropbox:Teal Move Scene Forward Button", vec2(WIDTH/2+150, HEIGHT/2-50))
+    pauseMusicButton = Button ("Dropbox:Teal Pause Button", vec2(WIDTH/2-150, HEIGHT/2-50))
     fontSize(40)
     --sprite("Dropbox:Green Pause Button")
 end
@@ -25,9 +25,10 @@ function Settings:draw()
     pauseMusicButton:draw()
     text("Settings", WIDTH/2, HEIGHT/2+300)
     fontSize(50)
-    text("Background Music Volume", WIDTH/2, HEIGHT/2+175)
-    text("Play", WIDTH/2+150, HEIGHT/2-150)
-    text("Pause", WIDTH/2-150, HEIGHT/2-150)
+    text("Background Music Volume", WIDTH/2, HEIGHT/2+100)
+    fontSize(45)
+    text("Play", WIDTH/2+150, HEIGHT/2-180)
+    text("Pause", WIDTH/2-150, HEIGHT/2-180)
     
 end
 

@@ -13,6 +13,7 @@
 		<string>MainGame</string>
 		<string>Pause</string>
 		<string>Tutorial</string>
+		<string>TutorialStart</string>
 		<string>Credits</string>
 		<string>Settings</string>
 		<string>Store</string>
@@ -20,9 +21,6 @@
 		<string>StoreShirts</string>
 		<string>StorePants</string>
 		<string>StoreGlasses</string>
-		<string>StoreBelts</string>
-		<string>StoreSocks</string>
-		<string>StoreGloves</string>
 		<string>HelperClass</string>
 	</array>
 	<key>Dependencies</key>

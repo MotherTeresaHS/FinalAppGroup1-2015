@@ -9,6 +9,8 @@
 -- Test commit by Mr.Coxall
 
 -- global to this program
+highScore = nil
+currentMoney = nil
 
 -- Use this function to perform your initial setup
 function setup()
@@ -20,6 +22,8 @@ function setup()
     font("ArialRoundedMTBold")
     fontSize(20)
     pushStyle()
+    highScore = readLocalData("highScore", 0)
+    currentMoney = readLocalData("currentmoney", 0)
     -- create the scenes
     Scene("companylogo", CompanyLogo)
     Scene("gamelogo", GameLogo)
@@ -27,6 +31,7 @@ function setup()
     Scene("maingame", MainGame)
     Scene("pause", PauseScreen)
     Scene("tutorial", Tutorial)
+    Scene("tutorialstart", TutorialStart)
     Scene("credits", Credits)
     Scene("settings", Settings)
     Scene("store", Store)
@@ -34,9 +39,6 @@ function setup()
     Scene("shirts", StoreShirts)
     Scene("pants", StorePants)
     Scene("glasses", StoreGlasses)
-    Scene("belts", StoreBelts)
-    Scene("socks", StoreSocks)
-    Scene("gloves", StoreGloves)
     Scene.Change("companylogo")
 end
 
