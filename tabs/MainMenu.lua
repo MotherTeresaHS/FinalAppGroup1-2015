@@ -10,6 +10,7 @@ MainMenu = class()
 
 -- global to this file
 local moveToMainGameButton
+local moveToGameButton
 local moveToPause
 local moveToTutorialButton
 local moveToStoreButton
@@ -22,6 +23,7 @@ local timeSinceRobotSelected
 
 function MainMenu:init()
     moveToMainGameButton = Button("Dropbox:playButton", vec2(WIDTH/2, HEIGHT/2+110))
+    moveToGameButton = Button("Dropbox:Green Forward Button", vec2(WIDTH/2, HEIGHT/2+200))
     moveToTutorialButton = Button("Dropbox:tutorialButton", vec2(WIDTH/2, HEIGHT/2-40))
     moveToStoreButton = Button("Dropbox:storeButton (1)", vec2(WIDTH/2, HEIGHT/2-190))
     moveToSettingsButton = Button("Dropbox:Teal Settings Button", vec2(WIDTH/2+300, HEIGHT/2+420))
@@ -36,13 +38,14 @@ function MainMenu:draw()
     font("Palatino-Bold")
    -- sprite("Dropbox:background", WIDTH/2, HEIGHT/2)
     moveToMainGameButton:draw()
+    moveToGameButton:draw()
     moveToTutorialButton:draw()
     moveToStoreButton:draw()
     moveToSettingsButton:draw()
     moveToCreditsButton:draw()
     letterDropRobot:draw()
     fontSize(75)
-    text("Letter Drop", WIDTH/2, HEIGHT/2+250)
+    text("Letter Drop", WIDTH/2, HEIGHT/2+300)
     fontSize(25)
     if (letterDropRobotSelected == true) then
         text("Welcome to", WIDTH/2+240, HEIGHT/2-275)
@@ -63,6 +66,7 @@ end
 function MainMenu:touched(touch)
     -- Codea does not automatically call this method
     moveToMainGameButton:touched(touch)
+    moveToGameButton:touched(touch)
     moveToTutorialButton:touched(touch)
     moveToStoreButton:touched(touch)
     moveToSettingsButton:touched(touch)
@@ -71,6 +75,9 @@ function MainMenu:touched(touch)
     
     if(moveToMainGameButton.selected == true) then
         Scene.Change("maingame")
+    end
+    if(moveToGameButton.selected == true) then
+        Scene.Change("prestart")
     end
     if(moveToTutorialButton.selected == true) then
         Scene.Change("tutorial")

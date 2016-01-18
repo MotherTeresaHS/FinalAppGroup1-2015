@@ -11,6 +11,7 @@
 -- global to this program
 highScore = nil
 currentMoney = nil
+local wordWallWordList = {}
 
 -- Use this function to perform your initial setup
 function setup()
@@ -22,6 +23,11 @@ function setup()
     font("ArialRoundedMTBold")
     fontSize(20)
     pushStyle()
+    table.insert(wordWallWordList, "independent")
+    table.insert(wordWallWordList, "about")
+    table.insert(wordWallWordList, "their")
+    table.insert(wordWallWordList, "with")
+    table.insert(wordWallWordList, "friendly")
     highScore = readLocalData("highScore", 0)
     currentMoney = readLocalData("currentmoney", 0)
     -- create the scenes
@@ -29,7 +35,11 @@ function setup()
     Scene("gamelogo", GameLogo)
     Scene("mainmenu", MainMenu)
     Scene("maingame", MainGame)
-    Scene("pause", PauseScreen)
+    Scene("prestart", GameStartScreen)
+    Scene("game", GameScene)
+    Scene("timeup", TimeUpScene)
+    Scene("pause", GamePause)
+    Scene("pausescene", PauseScreen)
     Scene("tutorial", Tutorial)
     Scene("tutorialstart", TutorialStart)
     Scene("credits", Credits)
