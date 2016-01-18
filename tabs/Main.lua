@@ -8,6 +8,11 @@
 
 -- Test commit by Mr.Coxall
 
+-- global to this program
+highScore = nil
+currentMoney = nil
+local wordWallWordList = {}
+
 -- Use this function to perform your initial setup
 function setup()
     supportedOrientations(PORTRAIT_ANY)
@@ -18,13 +23,25 @@ function setup()
     font("ArialRoundedMTBold")
     fontSize(20)
     pushStyle()
+    table.insert(wordWallWordList, "independent")
+    table.insert(wordWallWordList, "about")
+    table.insert(wordWallWordList, "their")
+    table.insert(wordWallWordList, "with")
+    table.insert(wordWallWordList, "friendly")
+    highScore = readLocalData("highScore", 0)
+    currentMoney = readLocalData("currentmoney", 0)
     -- create the scenes
     Scene("companylogo", CompanyLogo)
     Scene("gamelogo", GameLogo)
     Scene("mainmenu", MainMenu)
     Scene("maingame", MainGame)
-    Scene("pause", PauseScreen)
+    Scene("prestart", GameStartScreen)
+    Scene("game", GameScene)
+    Scene("timeup", TimeUpScene)
+    Scene("pause", GamePause)
+    Scene("pausescene", PauseScreen)
     Scene("tutorial", Tutorial)
+    Scene("tutorialstart", TutorialStart)
     Scene("credits", Credits)
     Scene("settings", Settings)
     Scene("store", Store)
@@ -32,9 +49,6 @@ function setup()
     Scene("shirts", StoreShirts)
     Scene("pants", StorePants)
     Scene("glasses", StoreGlasses)
-    Scene("belts", StoreBelts)
-    Scene("socks", StoreSocks)
-    Scene("gloves", StoreGloves)
     Scene.Change("companylogo")
 end
 

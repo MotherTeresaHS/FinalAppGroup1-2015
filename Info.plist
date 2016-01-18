@@ -11,8 +11,13 @@
 		<string>GameLogo</string>
 		<string>MainMenu</string>
 		<string>MainGame</string>
+		<string>GameStartScene</string>
+		<string>GameScene</string>
+		<string>GamePause</string>
+		<string>TimeUpScene</string>
 		<string>Pause</string>
 		<string>Tutorial</string>
+		<string>TutorialStart</string>
 		<string>Credits</string>
 		<string>Settings</string>
 		<string>Store</string>
@@ -20,9 +25,6 @@
 		<string>StoreShirts</string>
 		<string>StorePants</string>
 		<string>StoreGlasses</string>
-		<string>StoreBelts</string>
-		<string>StoreSocks</string>
-		<string>StoreGloves</string>
 		<string>HelperClass</string>
 	</array>
 	<key>Dependencies</key>
