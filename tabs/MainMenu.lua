@@ -61,8 +61,6 @@ function MainMenu:draw()
     end
 end
 
-
-
 function MainMenu:touched(touch)
     -- Codea does not automatically call this method
     moveToMainGameButton:touched(touch)

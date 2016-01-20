@@ -52,11 +52,28 @@ local zButton
     
 function GameScene:init()
 
-    print("This is the: " .. #wordWallWordList)
-    
-    --sprite("Dropbox:letterA")
-    -- works better if it is actually a button and not a Sprite object
-    -- also works better if you were using dropbox and give it the proper name.
+    -- need to zero out the tablefor eachnext word
+    print("words at botton length " .. #theWordAtBottom)
+    if (#theWordAtBottom > 0) then
+        for loopCounter = 1,#theWordAtBottom do
+            table.remove(theWordAtBottom, 1)
+        end
+    end
+    if (#listOfLettersInTheWord > 0) then
+        for loopCounter = 1,#listOfLettersInTheWord do
+            table.remove(listOfLettersInTheWord, 1)
+        end
+    end
+    if (#buttonLettersToFall > 0) then
+        for loopCounter = 1,#buttonLettersToFall do
+            table.remove(buttonLettersToFall, 1)
+        end
+    end
+    if (#badButtonLettersToFall > 0) then
+        for loopCounter = 1,#badButtonLettersToFall do
+            table.remove(badButtonLettersToFall, 1)
+        end
+    end
      
     aButton = Button("Dropbox:letterA", vec2(math.random(50,700), math.random(1000, 1500)))
     listOfLetters["a"] = aButton
@@ -110,19 +127,21 @@ function GameScene:init()
     listOfLetters["y"] = yButton
     zButton = Button("Dropbox:letterZ", vec2(math.random(50,700), math.random(1000, 1500)))
     listOfLetters["z"] = zButton
+    -- you need this letter
+    apostropheButton = Button("Dropbox:letterApostrophe", vec2(math.random(50,700), math.random(1000, 1500)))
+    listOfLetters["'"] = apostropheButton
     
-    
-    print ("This is the: " .. #listOfLetters)
+    --print ("This is the: " .. #listOfLetters)
     local lengthOfWordWallList = #wordWallWordList
     local theWordNumberToPick = math.random(1, lengthOfWordWallList)
     theWord = wordWallWordList[theWordNumberToPick]
     correctLetterCount = #theWord
     -- remove the word from the table
     table.remove(wordWallWordList, theWordNumberToPick)
-    print ("the word is " ..theWord)
+    print ("The word is " ..theWord)
     
     local letterCounter = 1
-    print("the length of the word is " .. #theWord)
+    --print("the length of the word is " .. #theWord)
     while (letterCounter <= #theWord) do
         
         listOfLettersInTheWord[letterCounter] = string.sub(theWord, letterCounter, letterCounter)
@@ -138,7 +157,33 @@ function GameScene:init()
         letterCounter = letterCounter + 1
     end
 
-    -- add letter of the word to the list
+    -- add letter of the word to the list that are wrong
+    
+    local badLetterCounter = 1
+    
+    -- add as many bad letters as good
+    repeat 
+        local alphabet ={"a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"}     
+        local selectRandomLetter = math.random(1, 26)
+        local randomLetter = alphabet[selectRandomLetter]
+        print(randomLetter)
+    
+        local notInWord = true
+    
+        for loopCounter = 1, #theWord do
+            if (listOfLettersInTheWord[loopCounter] == randomLetter) then
+                notInWord = false
+                print("letter rejected:" .. randomLetter)
+            end
+        end
+    
+        if (notInWord == true) then
+            table.insert(badButtonLettersToFall, listOfLetters[randomLetter])
+            print(randomLetter)
+            badLetterCounter = badLetterCounter + 1
+        end      
+    until  (badLetterCounter > #theWord)
+    
     
     
     --print(listOfLettersInTheWord)
@@ -161,8 +206,7 @@ end
 
 function GameScene:draw()
 
-    -- draw buttons in table buttonLettersToFall
-    
+    -- draw buttons in table buttonLettersToFall   
     local letterCounter = 1
     while (letterCounter <= #buttonLettersToFall) do
         --print(buttonLettersToFall[letterCounter])
@@ -182,6 +226,26 @@ function GameScene:draw()
         
         letterCounter = letterCounter + 1
     end
+    
+    -- draw  bad buttons in table buttonLettersToFall   
+    local badLetterCounter = 1
+    while (badLetterCounter <= #badButtonLettersToFall) do
+        badButtonLettersToFall[badLetterCounter]:draw()
+        
+        -- now move the letter down
+        local tempLocation = nil
+        tempLocation = badButtonLettersToFall[badLetterCounter].buttonLocation
+        --print(buttonLettersToFall[letterCounter].buttonLocation.y)
+        tempLocation.y = tempLocation.y - 2
+                 
+        -- move letter back up if they go off the bottom
+        if (tempLocation.y < 100) then
+            tempLocation.y = math.random(1024,1500)
+        end
+        badButtonLettersToFall[badLetterCounter].buttonLocation = tempLocation
+        
+        badLetterCounter = badLetterCounter + 1
+    end   
     
     -- word at the bottom
     local letterAtBottomCounter = 1
@@ -240,13 +304,32 @@ function GameScene:touched(touch)
                 end
                 -- you need to go to another scene and the back, or you get errors on the tables
                 -- go to a scene that shows the word you just got right for 1/2 second
-
-                Scene.Change("prestart")
+                print("word correct!!!")
+                Scene.Change("correctanswer")
             end
         end
         
         letterCounter = letterCounter + 1
     end
+    
+    local badLetterCounter = 1
+    while (badLetterCounter <= #badButtonLettersToFall) do
+        badButtonLettersToFall[badLetterCounter]:touched(touch)
+        
+        if (badButtonLettersToFall[badLetterCounter].selected == true) then
+            -- if a bad button letter is touched, move it back up
+            local tempLocation = nil
+            tempLocation = badButtonLettersToFall[badLetterCounter].buttonLocation
+            tempLocation.x = math.random(50, 700)
+            tempLocation.y = math.random(1024,1500)
+        
+            badButtonLettersToFall[badLetterCounter].buttonLocation = tempLocation        
+            badLetterCounter = badLetterCounter + 1
+        end
+        
+        badLetterCounter = badLetterCounter + 1
+    end
+    
     
     if(moveToExit.selected == true) then
         Scene.Change("prestart")

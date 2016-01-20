@@ -1,3 +1,6 @@
+--
+
+
 GameLogo = class()
 
 -- global to this file
@@ -11,12 +14,12 @@ end
 function GameLogo:draw()
     -- Codea does not automatically call this method
     sprite("Dropbox:GameLogo", WIDTH/2, HEIGHT/2)
-    print(ElapsedTime)
-    print("End time is " .. startTime + 3)
+    --print(ElapsedTime)
+    --print("End time is " .. startTime + 3)
     
     if(startTime + 3 < ElapsedTime) then
         Scene.Change("mainmenu")
-        print("The end time is " .. ElapsedTime)
+        --print("The end time is " .. ElapsedTime)
     end
 end
 
