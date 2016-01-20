@@ -1,3 +1,6 @@
+--
+
+
 MainGame = class()
 
 -- global to this file
@@ -15,7 +18,7 @@ function MainGame:init()
     currentMoneyIncreaseButton = Button("Dropbox:Teal Forward Circle Button", vec2(WIDTH/2+100, HEIGHT/2-50))
     currentMoneyDecreaseButton = Button("Dropbox:Teal Back Circle Button", vec2(WIDTH/2-100, HEIGHT/2-50))
 end
-sprite()
+
 
 function MainGame:draw()
     -- Codea does not automatically call this method

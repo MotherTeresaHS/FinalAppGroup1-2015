@@ -75,8 +75,8 @@ function setup()
     table.insert(wordWallWordList, "hopeless")
     -- "I" Letter Words
     table.insert(wordWallWordList, "I'm")
-    table.insert(wordWallWordList, "impossible")
-    table.insert(wordWallWordList, "independent")
+    --table.insert(wordWallWordList, "impossible")
+    --table.insert(wordWallWordList, "independent")
     table.insert(wordWallWordList, "into")
     table.insert(wordWallWordList, "it's")
     table.insert(wordWallWordList, "its")
@@ -131,7 +131,7 @@ function setup()
     table.insert(wordWallWordList, "trouble")
     table.insert(wordWallWordList, "two")
     -- "U" Letter Words
-    table.insert(wordWallWordList, "unhappiness")
+    --table.insert(wordWallWordList, "unhappiness")
     table.insert(wordWallWordList, "until")
     table.insert(wordWallWordList, "usually")
     -- "V" Letter Words
@@ -160,11 +160,6 @@ function setup()
     -- "Y" Letter Words
     table.insert(wordWallWordList, "your")
     table.insert(wordWallWordList, "you're")
-    
-   -- table.insert(wordWallWordList, "independent")
-  --  table.insert(wordWallWordList, "their")
-  --  table.insert(wordWallWordList, "with")
-   -- table.insert(wordWallWordList, "friendly")
     
     highScore = readLocalData("highScore", 0)
     currentMoney = readLocalData("currentmoney", 0)

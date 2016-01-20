@@ -52,11 +52,7 @@ local zButton
     
 function GameScene:init()
 
-    print("This is the: " .. #wordWallWordList)
-    
-    --sprite("Dropbox:letterA")
-    -- works better if it is actually a button and not a Sprite object
-    -- also works better if you were using dropbox and give it the proper name.
+    --print("This is the: " .. #wordWallWordList)
      
     aButton = Button("Dropbox:letterA", vec2(math.random(50,700), math.random(1000, 1500)))
     listOfLetters["a"] = aButton
@@ -110,9 +106,11 @@ function GameScene:init()
     listOfLetters["y"] = yButton
     zButton = Button("Dropbox:letterZ", vec2(math.random(50,700), math.random(1000, 1500)))
     listOfLetters["z"] = zButton
+    -- you need this letter
+    apostropheButton = Button("Dropbox:letterApostrophe", vec2(math.random(50,700), math.random(1000, 1500)))
+    listOfLetters["'"] = apostropheButton
     
-    
-    print ("This is the: " .. #listOfLetters)
+    --print ("This is the: " .. #listOfLetters)
     local lengthOfWordWallList = #wordWallWordList
     local theWordNumberToPick = math.random(1, lengthOfWordWallList)
     theWord = wordWallWordList[theWordNumberToPick]
@@ -128,7 +126,7 @@ function GameScene:init()
         listOfLettersInTheWord[letterCounter] = string.sub(theWord, letterCounter, letterCounter)
         
         --print (string.sub(theWord, letterCounter, letterCounter))
-        print(listOfLettersInTheWord[letterCounter])      
+        --print(listOfLettersInTheWord[letterCounter])      
         --print(listOfLetters[listOfLettersInTheWord[letterCounter]])
         table.insert(buttonLettersToFall, listOfLetters[listOfLettersInTheWord[letterCounter]])
         
@@ -138,7 +136,33 @@ function GameScene:init()
         letterCounter = letterCounter + 1
     end
 
-    -- add letter of the word to the list
+    -- add letter of the word to the list that are wrong
+    
+    local badLetterCounter = 1
+    
+    -- add as many bad letters as good
+    repeat 
+        local alphabet ={"a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"}     
+        local selectRandomLetter = math.random(1, 26)
+        local randomLetter = alphabet[selectRandomLetter]
+        print(randomLetter)
+    
+        local notInWord = true
+    
+        for loopCounter = 1, #theWord do
+            if (listOfLettersInTheWord[loopCounter] == randomLetter) then
+                notInWord = false
+                print("letter rejected:" .. randomLetter)
+            end
+        end
+    
+        if (notInWord == true) then
+            table.insert(badButtonLettersToFall, listOfLetters[randomLetter])
+            print(randomLetter)
+            badLetterCounter = badLetterCounter + 1
+        end      
+    until  (badLetterCounter > #theWord)
+    
     
     
     --print(listOfLettersInTheWord)
@@ -161,8 +185,7 @@ end
 
 function GameScene:draw()
 
-    -- draw buttons in table buttonLettersToFall
-    
+    -- draw buttons in table buttonLettersToFall   
     local letterCounter = 1
     while (letterCounter <= #buttonLettersToFall) do
         --print(buttonLettersToFall[letterCounter])
@@ -182,6 +205,26 @@ function GameScene:draw()
         
         letterCounter = letterCounter + 1
     end
+    
+    -- draw  bad buttons in table buttonLettersToFall   
+    local badLetterCounter = 1
+    while (badLetterCounter <= #badButtonLettersToFall) do
+        badButtonLettersToFall[badLetterCounter]:draw()
+        
+        -- now move the letter down
+        local tempLocation = nil
+        tempLocation = badButtonLettersToFall[badLetterCounter].buttonLocation
+        --print(buttonLettersToFall[letterCounter].buttonLocation.y)
+        tempLocation.y = tempLocation.y - 2
+                 
+        -- move letter back up if they go off the bottom
+        if (tempLocation.y < 100) then
+            tempLocation.y = math.random(1024,1500)
+        end
+        badButtonLettersToFall[badLetterCounter].buttonLocation = tempLocation
+        
+        badLetterCounter = badLetterCounter + 1
+    end   
     
     -- word at the bottom
     local letterAtBottomCounter = 1

@@ -12,14 +12,9 @@ function GameStartScreen:init()
 
     moveToGameScene = Button("Dropbox:Green Forward Circle Button", vec2(WIDTH/2, HEIGHT/2 -125))
 
-
-
 end
 
 function GameStartScreen:draw()
-
-
-
     sprite("Documents:Grade 3 Game Background", 384, 512, 768, 1024)
 
 
@@ -48,5 +43,4 @@ function GameStartScreen:touched(touch)
     if(moveToGameScene.selected == true) then
         Scene.Change("game")
     end
-
 end
