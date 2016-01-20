@@ -9,7 +9,7 @@ local startTime
 function CompanyLogo:init()
     -- you can accept and set parameters here
     startTime = ElapsedTime
-    music("Game Music One:Pulsar", true, 0.75)
+    --music("Game Music One:Pulsar", true, 0.75)
 end
 
 function CompanyLogo:draw()

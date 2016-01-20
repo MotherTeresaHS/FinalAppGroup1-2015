@@ -52,7 +52,28 @@ local zButton
     
 function GameScene:init()
 
-    --print("This is the: " .. #wordWallWordList)
+    -- need to zero out the tablefor eachnext word
+    print("words at botton length " .. #theWordAtBottom)
+    if (#theWordAtBottom > 0) then
+        for loopCounter = 1,#theWordAtBottom do
+            table.remove(theWordAtBottom, 1)
+        end
+    end
+    if (#listOfLettersInTheWord > 0) then
+        for loopCounter = 1,#listOfLettersInTheWord do
+            table.remove(listOfLettersInTheWord, 1)
+        end
+    end
+    if (#buttonLettersToFall > 0) then
+        for loopCounter = 1,#buttonLettersToFall do
+            table.remove(buttonLettersToFall, 1)
+        end
+    end
+    if (#badButtonLettersToFall > 0) then
+        for loopCounter = 1,#badButtonLettersToFall do
+            table.remove(badButtonLettersToFall, 1)
+        end
+    end
      
     aButton = Button("Dropbox:letterA", vec2(math.random(50,700), math.random(1000, 1500)))
     listOfLetters["a"] = aButton
@@ -117,16 +138,16 @@ function GameScene:init()
     correctLetterCount = #theWord
     -- remove the word from the table
     table.remove(wordWallWordList, theWordNumberToPick)
-    print ("the word is " ..theWord)
+    print ("The word is " ..theWord)
     
     local letterCounter = 1
-    print("the length of the word is " .. #theWord)
+    --print("the length of the word is " .. #theWord)
     while (letterCounter <= #theWord) do
         
         listOfLettersInTheWord[letterCounter] = string.sub(theWord, letterCounter, letterCounter)
         
         --print (string.sub(theWord, letterCounter, letterCounter))
-        --print(listOfLettersInTheWord[letterCounter])      
+        print(listOfLettersInTheWord[letterCounter])      
         --print(listOfLetters[listOfLettersInTheWord[letterCounter]])
         table.insert(buttonLettersToFall, listOfLetters[listOfLettersInTheWord[letterCounter]])
         
@@ -283,13 +304,32 @@ function GameScene:touched(touch)
                 end
                 -- you need to go to another scene and the back, or you get errors on the tables
                 -- go to a scene that shows the word you just got right for 1/2 second
-
-                Scene.Change("prestart")
+                print("word correct!!!")
+                Scene.Change("correctanswer")
             end
         end
         
         letterCounter = letterCounter + 1
     end
+    
+    local badLetterCounter = 1
+    while (badLetterCounter <= #badButtonLettersToFall) do
+        badButtonLettersToFall[badLetterCounter]:touched(touch)
+        
+        if (badButtonLettersToFall[badLetterCounter].selected == true) then
+            -- if a bad button letter is touched, move it back up
+            local tempLocation = nil
+            tempLocation = badButtonLettersToFall[badLetterCounter].buttonLocation
+            tempLocation.x = math.random(50, 700)
+            tempLocation.y = math.random(1024,1500)
+        
+            badButtonLettersToFall[badLetterCounter].buttonLocation = tempLocation        
+            badLetterCounter = badLetterCounter + 1
+        end
+        
+        badLetterCounter = badLetterCounter + 1
+    end
+    
     
     if(moveToExit.selected == true) then
         Scene.Change("prestart")
