@@ -1,6 +1,3 @@
---
-
-
 MainGame = class()
 
 -- global to this file

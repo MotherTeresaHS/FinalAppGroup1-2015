@@ -2,7 +2,7 @@ StoreHats = class()
 
 -- global to this file
 local moveToStoreButton
-local hatOne 
+local hatOne
 local hatTwo
 local hatThree
 local hatFour
@@ -57,6 +57,9 @@ function StoreHats:draw()
     text("$30", 195,390 )
     fill(0, 0, 255, 255)
     text("$"..math.floor(currentMoney), 397, 800)
+    fill(0, 0, 255, 255)
+    fontSize(50)
+    text("select one to buy", 386.5,200 )
 end
 
 function StoreHats:touched(touch)
@@ -73,65 +76,69 @@ function StoreHats:touched(touch)
     if(moveToStoreButton.selected == true) then
         Scene.Change("store")
     end
-    if(hatOne.selected == true) then 
+    if(hatOne.selected == true) then
         if(currentMoney>=5)then
             currentMoney=currentMoney-5
-            if(currentMoney < 4) then
-                alert("not enough coins")
-            end
-        end
-        
-    end
-    if(hatTwo.selected == true) then 
-        if(currentMoney >= 10)then
-            currentMoney = currentMoney -10
-        if(currentMoney < 9) then
+            currentHat = 5
+            saveLocalData("currenthat", currentHat)
+        else
             alert("not enough coins")
-         end
+        end
     end
+    
+    if(hatTwo.selected == true) then
+        if(currentMoney >= 10)then
+            currentMoney = currentMoney - 10
+            currentHat = 10
+            saveLocalData("currenthat", currentHat)
+        else
+            alert("not enough coins")
+        end
     end
-                
-    if(hatThree.selected == true) then 
+    
+    if(hatThree.selected == true) then
         if(currentMoney >= 15) then
             currentMoney=currentMoney-15
-        end
-    if(currentMoney < 14) then
+            currentHat = 15
+            saveLocalData("currenthat", currentHat)
+        else
             alert("not enough coins")
+        end
     end
-    end 
-    if(hatFour.selected == true) then 
+    if(hatFour.selected == true) then
         if(currentMoney >= 20) then
             currentMoney=currentMoney-20
-        end
-        if(currentMoney < 19) then
+            currentHat = 20
+            saveLocalData("currenthat", currentHat)
+        else
             alert("not enough coins")
+        end
     end
-    end
-    if(hatFive.selected == true) then 
+    if(hatFive.selected == true) then
         if(currentMoney >= 25) then
             currentMoney=currentMoney-25
-        end
-     if(currentMoney < 24) then
+            currentHat = 25
+            saveLocalData("currenthat", currentHat)
+        else
             alert("not enough coins")
+        end
     end
-    end
-    if(hatSix.selected == true) then 
+    if(hatSix.selected == true) then
         if(currentMoney >= 30) then
             currentMoney=currentMoney-30
-        end
-     if(currentMoney < 29) then
+            currentHat = 30
+            saveLocalData("currenthat", currentHat)
+        else
             alert("not enough coins")
+        end
     end
-    end
-    if(hatSeven.selected == true) then 
-        if(currentMoney >= 35) then 
+    if(hatSeven.selected == true) then
+        if(currentMoney >= 35) then
             currentMoney=currentMoney-35
-        end
-        if(currentMoney < 34) then
+            currentHat = 35
+            saveLocalData("currenthat", currentHat)
+        else
             alert("not enough coins")
-    end
+        end
     end
 end
-                 
-                    
-                
