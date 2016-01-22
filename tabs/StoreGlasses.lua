@@ -11,31 +11,31 @@ local glassesSix
 
 function StoreGlasses:init()
     -- you can accept and set parameters here
---sprite("Cargo Bot:Condition Blue")
+    --sprite("Dropbox:glasses10")
     moveToStoreButton4 = Button("Dropbox:Blue Back Circle Button", vec2(WIDTH/2-300, HEIGHT/2+420))
-    glassesOne = Button("Cargo Bot:Condition Blue", vec2(WIDTH/2+300, HEIGHT/2))
-    glassesTwo = Button("Cargo Bot:Condition Green", vec2(WIDTH/2+300, HEIGHT/2-120))
-    glassesThree = Button("Cargo Bot:Condition None", vec2(WIDTH/2+300, HEIGHT/2-240))
-    glassesFour = Button("Cargo Bot:Condition Yellow", vec2(WIDTH/2, HEIGHT/2-120))
+    glassesOne = Button("Dropbox:glasses2", vec2(WIDTH/2+300, HEIGHT/2))
+    glassesTwo = Button("Dropbox:glasses4", vec2(WIDTH/2+300, HEIGHT/2-120))
+    glassesThree = Button("Dropbox:glasses6", vec2(WIDTH/2+300, HEIGHT/2-240))
+    glassesFour = Button("Dropbox:glasses8", vec2(WIDTH/2, HEIGHT/2-120))
     glassesFive = Button("Dropbox:glasses3", vec2(WIDTH/2-300, HEIGHT/2-240))
-    glassesSix = Button("Dropbox:glasses 5", vec2(WIDTH/2-300, HEIGHT/2))
-    glassesSeven = Button("Dropbox:Star Black", vec2(WIDTH/2-300, HEIGHT/2-120))
+    glassesSix = Button("Dropbox:glasses10", vec2(WIDTH/2-300, HEIGHT/2))
+    glassesSeven = Button("Dropbox:glasses7", vec2(WIDTH/2-300, HEIGHT/2-120))
     
 end
 
 function StoreGlasses:draw()
     -- Codea does not automatically call this method
     background(255, 255, 255, 255)
-      moveToStoreButton4:draw()
+    moveToStoreButton4:draw()
     glassesOne:draw()
     glassesTwo:draw()
     glassesThree:draw()
-    glassesFour:draw()  
+    glassesFour:draw()
     glassesFive:draw()
     glassesSix:draw()
     glassesSeven:draw()
     
-      fill(0, 0, 255, 255)
+    fill(0, 0, 255, 255)
     fontSize(50)
     text("$5", 580,520 )
     fill(0, 0, 255, 255)
@@ -57,9 +57,12 @@ function StoreGlasses:draw()
     fontSize(50)
     text("$30", 195,390 )
     fill(0, 0, 255, 255)
-    
     text("$"..math.floor(currentMoney), 397, 800)
-  
+    fill(0, 0, 255, 255)
+    fontSize(50)
+    text("select one to buy", 386.5,200 )
+    text("$"..math.floor(currentMoney), 397, 800)
+    
 end
 
 function StoreGlasses:touched(touch)
@@ -73,66 +76,72 @@ function StoreGlasses:touched(touch)
     glassesSix:touched(touch)
     glassesSeven:touched(touch)
     
-  if(moveToStoreButton4.selected == true) then
+    if(moveToStoreButton4.selected == true) then
         Scene.Change("store")
-    end  
-     if(glassesOne.selected == true) then 
+    end
+    if(glassesOne.selected == true) then
         if(currentMoney>=5)then
             currentMoney=currentMoney-5
-        end
-          if(currentMoney < 5) then
+            currentHat = 5
+            saveLocalData("currentglasses", currentGlasses)
+        else
             alert("not enough coins")
-    end
-    end
-            
-    if(glassesTwo.selected == true) then 
-        if(currentMoney>=10)then
-            currentMoney=currentMoney-10
         end
-         if(currentMoney < 9) then
+    end
+    
+    if(glassesTwo.selected == true) then
+        if(currentMoney >= 10)then
+            currentMoney = currentMoney - 10
+            currentHat = 10
+            saveLocalData("currentglasses", currentGlasses)
+        else
             alert("not enough coins")
+        end
     end
-    end
-                
-    if(glassesThree.selected == true) then 
+    
+    if(glassesThree.selected == true) then
         if(currentMoney >= 15) then
             currentMoney=currentMoney-15
-        end
-          if(currentMoney < 14) then
+            currentHat = 15
+            saveLocalData("currentglasses", currentglasses)
+        else
             alert("not enough coins")
+        end
     end
-    end
-    if(glassesFour.selected == true) then 
+    if(glassesFour.selected == true) then
         if(currentMoney >= 20) then
             currentMoney=currentMoney-20
-        end
-          if(currentMoney < 19) then
+            currentHat = 20
+            saveLocalData("currentglasses", currentGlasses)
+        else
             alert("not enough coins")
+        end
     end
-    end
-    if(glassesFive.selected == true) then 
+    if(glassesFive.selected == true) then
         if(currentMoney >= 25) then
             currentMoney=currentMoney-25
-        end
-          if(currentMoney < 24) then
+            currentpants = 25
+            saveLocalData("currentglasses", currentGlasses)
+        else
             alert("not enough coins")
+        end
     end
-    end
-    if(glassesSix.selected == true) then 
+    if(glassesSix.selected == true) then
         if(currentMoney >= 30) then
             currentMoney=currentMoney-30
-        end
-          if(currentMoney < 29) then
+            currentPants = 30
+            saveLocalData("currentglasses", currentGlasses)
+        else
             alert("not enough coins")
+        end
     end
-    end
-    if(glassesSeven.selected == true) then 
-        if(currentMoney >= 35) then 
+    if(glassesSeven.selected == true) then
+        if(currentMoney >= 35) then
             currentMoney=currentMoney-35
-        end
-          if(currentMoney < 34) then
+            currentPants = 35
+            saveLocalData("currentglasses", currentGlasses)
+        else
             alert("not enough coins")
-    end
+        end
     end
 end
-    
