@@ -1,6 +1,3 @@
---
-
-
 GameLogo = class()
 
 -- global to this file

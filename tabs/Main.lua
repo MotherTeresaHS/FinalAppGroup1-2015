@@ -1,5 +1,5 @@
 -- Main
--- FinalAppGroup1-2015
+-- FinalAppGroup1-2015 Tutorial
 
 -- Created by: Alexandra Kuhn
 -- Created on: Nov 23 2015
@@ -11,6 +11,11 @@
 -- global to this program
 highScore = nil
 currentMoney = nil
+currentHat = nil
+currentShirt = nil
+currentPants = nil
+currentGlasses = nil
+
 --local wordWallWordList = {}
 wordWallWordList = {}
 timeLeftOnClock = 60
@@ -18,7 +23,7 @@ timeLeftOnClock = 60
 
 -- Use this function to perform your initial setup
 function setup()
-    supportedOrientations(PORTRAIT_ANY)
+    supportedOrientations(PORTRAIT)
     displayMode(FULLSCREEN)
     fill(0, 0, 0, 255)
     smooth()

@@ -16,8 +16,9 @@ end
 
 function Settings:draw()
     -- Codea does not automatically call this method
-    background(238, 43, 159, 255)
-    fill(255, 255, 255, 255)
+   -- background(238, 43, 159, 255)
+    sprite("Dropbox:background", WIDTH/2, HEIGHT/2)
+    fill(0, 0, 0, 255)
     font("Palatino-Bold")
     fontSize(75)
     moveToMainMenuButton:draw()

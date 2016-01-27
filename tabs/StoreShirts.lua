@@ -1,4 +1,4 @@
-StoreShirts = class()
+ StoreShirts = class()
 
 --global to this file
 local moveToStoreButton2
@@ -25,16 +25,16 @@ end
 function StoreShirts:draw()
     -- Codea does not automatically call this method
     background(255, 255, 255, 255)
-    moveToStoreButton2:draw()
+      moveToStoreButton2:draw()
     shirtOne:draw()
     shirtTwo:draw()
     shirtThree:draw()
-    shirtFour:draw()
+    shirtFour:draw()  
     shirtFive:draw()
     shirtSix:draw()
     shirtSeven:draw()
     
-    fill(0, 0, 255, 255)
+      fill(0, 0, 255, 255)
     fontSize(50)
     text("$5", 580,520 )
     fill(0, 0, 255, 255)
@@ -56,11 +56,7 @@ function StoreShirts:draw()
     fontSize(50)
     text("$30", 195,390 )
     fill(0, 0, 255, 255)
-    text("$"..math.floor(currentMoney), 397, 800)
-    fill(0, 0, 255, 255)
-    fontSize(50)
-    text("select one to buy", 386.5,200 )
-    
+  
     text("$"..math.floor(currentMoney), 397, 800)
 end
 
@@ -78,69 +74,62 @@ function StoreShirts:touched(touch)
     if(moveToStoreButton2.selected == true) then
         Scene.Change("store")
     end
-    if(shirtOne.selected == true) then
+if(shirtOne.selected == true) then 
         if(currentMoney>=5)then
             currentMoney=currentMoney-5
-            currentShirt = 5
-            saveLocalData("currentshirt", currentShirt)
-        else
-            alert("not enough coins")
         end
+        if(currentMoney < 4) then
+            alert("not enough coins")
     end
-    
-    if(shirtTwo.selected == true) then
+    end
+    if(shirtTwo.selected == true) then 
         if(currentMoney >= 10)then
-            currentMoney = currentMoney - 10
-            currentShirt = 10
-            saveLocalData("currentshirt", currentShirt)
-        else
-            alert("not enough coins")
+            currentMoney = currentMoney -10
         end
+        if(currentMoney < 9) then
+            alert("not enough coins")
     end
-    
-    if(shirtThree.selected == true) then
+    end
+                
+    if(shirtThree.selected == true) then 
         if(currentMoney >= 15) then
             currentMoney=currentMoney-15
-            currentShirt = 15
-            saveLocalData("currentshirt", currentShirt)
-        else
-            alert("not enough coins")
         end
+    if(currentMoney < 14) then
+            alert("not enough coins")
     end
-    if(shirtFour.selected == true) then
+    end 
+    if(shirtFour.selected == true) then 
         if(currentMoney >= 20) then
             currentMoney=currentMoney-20
-            currentShirt = 20
-            saveLocalData("currentshirt", currentShirt)
-        else
-            alert("not enough coins")
         end
+        if(currentMoney < 19) then
+            alert("not enough coins")
     end
-    if(shirtFive.selected == true) then
+    end
+    if(shirtFive.selected == true) then 
         if(currentMoney >= 25) then
             currentMoney=currentMoney-25
-            currentShirt = 25
-            saveLocalData("currentshirt", currentShirt)
-        else
-            alert("not enough coins")
         end
+     if(currentMoney < 24) then
+            alert("not enough coins")
     end
-    if(shirtSix.selected == true) then
+    end
+    if(shirtSix.selected == true) then 
         if(currentMoney >= 30) then
             currentMoney=currentMoney-30
-            currentShirt = 30
-            saveLocalData("currentshirt", currentShirt)
-        else
-            alert("not enough coins")
         end
+     if(currentMoney < 29) then
+            alert("not enough coins")
     end
-    if(shirtSeven.selected == true) then
-        if(currentMoney >= 35) then
+    end
+    if(shirtSeven.selected == true) then 
+        if(currentMoney >= 35) then 
             currentMoney=currentMoney-35
-            currentShirt = 35
-            saveLocalData("currentshirt", currentShirt)
-        else
-            alert("not enough coins")
         end
+        if(currentMoney < 34) then
+            alert("not enough coins")
     end
-end
+    end
+ 
+      end
