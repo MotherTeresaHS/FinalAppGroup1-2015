@@ -7,24 +7,12 @@ function CorrectAnswer:init()
     -- you can accept and set parameters here
     startTime = ElapsedTime
     speech.say("Correct!")
-    --noSmooth()
-    --noStroke()
-    --noFill()
-    --fontSize(nil)
-    --pushStyle()
-
 end
 
 function CorrectAnswer:draw()
     -- Codea does not automatically call this method
-    background(255, 255, 255, 255)
-    fill(0, 255, 0, 255)
-    font("ArialRoundedMTBold")
-    fontSize(100)
-    text("Correct", 384, 512)
-    pushStyle()
-    popStyle()
-
+    text("Correct", 300,400)
+    
         if(startTime + 1 < ElapsedTime) then
         Scene.Change("game")
         --print("The end time is " .. ElapsedTime)

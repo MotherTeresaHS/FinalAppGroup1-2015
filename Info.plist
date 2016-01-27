@@ -11,6 +11,7 @@
 		<string>GameLogo</string>
 		<string>MainMenu</string>
 		<string>MainGame</string>
+		<string>GameStartScene</string>
 		<string>GameScene</string>
 		<string>CorrectAnswer</string>
 		<string>GamePause</string>

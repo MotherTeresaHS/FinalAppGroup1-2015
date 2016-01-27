@@ -3,11 +3,7 @@
 -- App Development
 -- This Program's Idea Was Done All By The Grade 3's
 
-
-
-
 GameScene = class()
-
 
 local listOfLetters = {}
 local moveToPause
