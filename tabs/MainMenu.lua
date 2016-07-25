@@ -22,27 +22,26 @@ local letterDropRobotWait = false
 local timeSinceRobotSelected
 
 function MainMenu:init()
-    moveToMainGameButton = Button("Dropbox:playButton", vec2(WIDTH/2, HEIGHT/2+110))
+    --moveToMainGameButton = Button("Dropbox:playButton", vec2(WIDTH/2, HEIGHT/2+110))
     moveToGameButton = Button("Dropbox:Green Forward Button", vec2(WIDTH/2, HEIGHT/2+200))
-    moveToTutorialButton = Button("Dropbox:tutorialButton", vec2(WIDTH/2, HEIGHT/2-40))
-    moveToStoreButton = Button("Dropbox:storeButton", vec2(WIDTH/2, HEIGHT/2-190))
-    moveToSettingsButton = Button("Dropbox:Teal Settings Button", vec2(WIDTH/2+300, HEIGHT/2+420))
+    --moveToTutorialButton = Button("Dropbox:tutorialButton", vec2(WIDTH/2, HEIGHT/2-40))
+    moveToStoreButton = Button("Dropbox:storeButton (1)", vec2(WIDTH/2, HEIGHT/2-190))
+    --moveToSettingsButton = Button("Dropbox:Teal Settings Button", vec2(WIDTH/2+300, HEIGHT/2+420))
     moveToCreditsButton = Button("Dropbox:creditsButton", vec2(WIDTH/2, HEIGHT/2-340))
-    letterDropRobot = Button("Dropbox:Star Gold", vec2(WIDTH/2+235, HEIGHT/2-365))
+    letterDropRobot = Button("Planet Cute:Character Princess Girl", vec2(WIDTH/2+235, HEIGHT/2-360))
 end
-sprite("Dropbox:Star Gold")
+sprite("Dropbox:tutorialButton")
 function MainMenu:draw()
     -- Codea does not automatically call this method
-  --  background(204, 43, 133, 255)
-    sprite("Dropbox:background", WIDTH/2, HEIGHT/2)
-    fill(0, 0, 0, 255)
+    background(204, 43, 133, 255)
+    fill(255, 255, 255, 255)
     font("Palatino-Bold")
    -- sprite("Dropbox:background", WIDTH/2, HEIGHT/2)
-    moveToMainGameButton:draw()
+    --moveToMainGameButton:draw()
     moveToGameButton:draw()
-    moveToTutorialButton:draw()
+    --moveToTutorialButton:draw()
     moveToStoreButton:draw()
-    moveToSettingsButton:draw()
+    --moveToSettingsButton:draw()
     moveToCreditsButton:draw()
     letterDropRobot:draw()
     fontSize(75)
@@ -52,9 +51,6 @@ function MainMenu:draw()
         text("Welcome to", WIDTH/2+240, HEIGHT/2-275)
         text("Letter Drop!", WIDTH/2+240, HEIGHT/2-300)
     end
-    fontSize(30)
-    text("Highscore = "..math.floor(highScore), WIDTH/2-225, HEIGHT/2+450)
-    text("Coins = $"..math.floor(currentMoney), WIDTH/2-225, HEIGHT/2+415)
     if (letterDropRobotWait == true) then
         background(0, 153, 255, 255)
     end
@@ -67,29 +63,29 @@ end
 
 function MainMenu:touched(touch)
     -- Codea does not automatically call this method
-    moveToMainGameButton:touched(touch)
+    --moveToMainGameButton:touched(touch)
     moveToGameButton:touched(touch)
-    moveToTutorialButton:touched(touch)
+    --moveToTutorialButton:touched(touch)
     moveToStoreButton:touched(touch)
-    moveToSettingsButton:touched(touch)
+    --moveToSettingsButton:touched(touch)
     moveToCreditsButton:touched(touch)
     letterDropRobot:touched(touch)
     
-    if(moveToMainGameButton.selected == true) then
-        Scene.Change("maingame")
-    end
+    --if(moveToMainGameButton.selected == true) then
+      --  Scene.Change("maingame")
+    --end
     if(moveToGameButton.selected == true) then
         Scene.Change("prestart")
     end
-    if(moveToTutorialButton.selected == true) then
-        Scene.Change("tutorial")
-    end
+    --if(moveToTutorialButton.selected == true) then
+      --  Scene.Change("tutorial")
+    --end
     if(moveToStoreButton.selected == true) then
         Scene.Change("store")
     end
-    if(moveToSettingsButton.selected == true) then
-        Scene.Change("settings")
-    end
+    --if(moveToSettingsButton.selected == true) then
+      --  Scene.Change("settings")
+    --end
     if(moveToCreditsButton.selected == true) then
         Scene.Change("credits")
     end

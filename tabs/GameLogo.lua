@@ -1,3 +1,6 @@
+--
+
+
 GameLogo = class()
 
 -- global to this file
@@ -10,7 +13,7 @@ end
 
 function GameLogo:draw()
     -- Codea does not automatically call this method
-    sprite("Dropbox:GameLogo", WIDTH/2, HEIGHT/2)
+    sprite("Dropbox:GameLogo", WIDTH/2, HEIGHT/2, WIDTH, HEIGHT)
     --print(ElapsedTime)
     --print("End time is " .. startTime + 3)
     

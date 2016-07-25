@@ -12,9 +12,8 @@ end
 
 function Tutorial:draw()
     -- Codea does not automatically call this method
-   -- background(237, 137, 20, 255)
-    sprite("Dropbox:background", WIDTH/2, HEIGHT/2)
-    fill(0, 0, 0, 255)
+    background(187, 0, 255, 255)
+    fill(255, 255, 255, 255)
     font("Palatino-Bold")
     fontSize(75)
     moveToMainMenuButton:draw()
@@ -38,4 +37,3 @@ function Tutorial:touched(touch)
         Scene.Change("tutorialstart")
     end
 end
-

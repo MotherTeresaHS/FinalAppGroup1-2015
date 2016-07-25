@@ -1,5 +1,5 @@
 -- Main
--- FinalAppGroup1-2015 Tutorial
+-- FinalAppGroup1-2015
 
 -- Created by: Alexandra Kuhn
 -- Created on: Nov 23 2015
@@ -10,21 +10,17 @@
 
 -- global to this program
 highScore = nil
+currentScore = nil
 currentMoney = nil
-currentHat = nil
-currentShirt = nil
-currentPants = nil
-currentGlasses = nil
-
 --local wordWallWordList = {}
 wordWallWordList = {}
-timeLeftOnClock = 60
-
+timeLeftOnClock = 30
+startTime = 0
 
 -- Use this function to perform your initial setup
 function setup()
-    supportedOrientations(PORTRAIT)
-    displayMode(FULLSCREEN)
+    supportedOrientations(PORTRAIT_ANY)
+    displayMode(FULLSCREEN_NO_BUTTONS)
     fill(0, 0, 0, 255)
     smooth()
     stroke(0, 0, 0, 255)
@@ -36,18 +32,18 @@ function setup()
     --table.insert(wordWallWordList, "again")
     table.insert(wordWallWordList, "almost")
     table.insert(wordWallWordList, "also")
-    table.insert(wordWallWordList, "always")
+    --table.insert(wordWallWordList, "always")
     table.insert(wordWallWordList, "another")
     --table.insert(wordWallWordList, "anyone")
     table.insert(wordWallWordList, "are")
     -- "B" Letter Words
-    table.insert(wordWallWordList, "beautiful")
+    --table.insert(wordWallWordList, "beautiful")
     --table.insert(wordWallWordList, "because")
     --table.insert(wordWallWordList, "before")
     table.insert(wordWallWordList, "buy")
     table.insert(wordWallWordList, "by")
     -- "C" Letter Words
-    table.insert(wordWallWordList, "can't")
+    --table.insert(wordWallWordList, "can't")
     table.insert(wordWallWordList, "city")
     table.insert(wordWallWordList, "could")
     --table.insert(wordWallWordList, "community")
@@ -56,8 +52,8 @@ function setup()
     -- "D" Letter Words
     --table.insert(wordWallWordList, "didn't")
     table.insert(wordWallWordList, "discover")
-    table.insert(wordWallWordList, "doesn't")
-    table.insert(wordWallWordList, "don't")
+    --table.insert(wordWallWordList, "doesn't")
+    --table.insert(wordWallWordList, "don't")
     -- "E" Letter Words
     table.insert(wordWallWordList, "enough")
     --table.insert(wordWallWordList, "especially")
@@ -66,7 +62,7 @@ function setup()
     --table.insert(wordWallWordList, "except")
     --table.insert(wordWallWordList, "exciting")
     -- "F" Letter Words
-    table.insert(wordWallWordList, "favourite")
+    --table.insert(wordWallWordList, "favourite")
     table.insert(wordWallWordList, "first")
     table.insert(wordWallWordList, "friendly")
     -- "G" Letter Words
@@ -83,7 +79,7 @@ function setup()
     --table.insert(wordWallWordList, "impossible")
     --table.insert(wordWallWordList, "independent")
     table.insert(wordWallWordList, "into")
-    table.insert(wordWallWordList, "it's")
+    --table.insert(wordWallWordList, "it's")
     table.insert(wordWallWordList, "its")
     -- "J" Letter Words
     table.insert(wordWallWordList, "journal")
@@ -92,7 +88,7 @@ function setup()
     table.insert(wordWallWordList, "know")
     -- "L" Letter Words
     table.insert(wordWallWordList, "laughed")
-    table.insert(wordWallWordList, "let's")
+    --table.insert(wordWallWordList, "let's")
     --table.insert(wordWallWordList, "lovable")
     -- "M" Letter Words
     table.insert(wordWallWordList, "myself")
@@ -159,12 +155,12 @@ function setup()
     --table.insert(wordWallWordList, "winner")
     table.insert(wordWallWordList, "with")
     table.insert(wordWallWordList, "won")
-    table.insert(wordWallWordList, "won't")
-    table.insert(wordWallWordList, "wouldn't")
+    --table.insert(wordWallWordList, "won't")
+    --table.insert(wordWallWordList, "wouldn't")
     table.insert(wordWallWordList, "write")
     -- "Y" Letter Words
     table.insert(wordWallWordList, "your")
-    table.insert(wordWallWordList, "you're")
+    --table.insert(wordWallWordList, "you're")
     
     highScore = readLocalData("highScore", 0)
     currentMoney = readLocalData("currentmoney", 0)

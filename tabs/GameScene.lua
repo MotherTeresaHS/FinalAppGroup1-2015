@@ -3,11 +3,15 @@
 -- App Development
 -- This Program's Idea Was Done All By The Grade 3's
 
+
+
+
 GameScene = class()
+
 
 local listOfLetters = {}
 local moveToPause
-local startTime
+--local startTime
 local endTime
 local currentTime
 local sayWordAgainTime
@@ -45,10 +49,11 @@ local wButton
 local xButton
 local yButton
 local zButton
+local blankButton
     
 function GameScene:init()
 
-    -- need to zero out the tablefor eachnext word
+    -- need to zero out the table for each next word
     print("words at botton length " .. #theWordAtBottom)
     if (#theWordAtBottom > 0) then
         for loopCounter = 1,#theWordAtBottom do
@@ -71,60 +76,64 @@ function GameScene:init()
         end
     end
      
-    aButton = Button("Dropbox:letterA", vec2(math.random(50,700), math.random(1000, 1500)))
+    aButton = Button("Dropbox:letterA", vec2(math.random(50,WIDTH-68), math.random(1000, 1500)))
     listOfLetters["a"] = aButton
-    bButton = Button("Dropbox:letterB", vec2(math.random(50,700), math.random(1000, 1500)))
+    bButton = Button("Dropbox:letterB", vec2(math.random(50,WIDTH-68), math.random(1000, 1500)))
     listOfLetters["b"] = bButton
-    cButton = Button("Dropbox:letterC", vec2(math.random(50,700), math.random(1000, 1500)))
+    cButton = Button("Dropbox:letterC", vec2(math.random(50,WIDTH-68), math.random(1000, 1500)))
     listOfLetters["c"] = cButton
-    dButton = Button("Dropbox:letterD", vec2(math.random(50,700), math.random(1000, 1500)))
+    dButton = Button("Dropbox:letterD", vec2(math.random(50,WIDTH-68), math.random(1000, 1500)))
     listOfLetters["d"] = dButton
-    eButton = Button("Dropbox:letterE", vec2(math.random(50,700), math.random(1000, 1500)))
+    eButton = Button("Dropbox:letterE", vec2(math.random(50,WIDTH-68), math.random(1000, 1500)))
     listOfLetters["e"] = eButton
-    fButton = Button("Dropbox:letterF", vec2(math.random(50,700), math.random(1000, 1500)))
+    fButton = Button("Dropbox:letterF", vec2(math.random(50,WIDTH-68), math.random(1000, 1500)))
     listOfLetters["f"] = fButton
-    gButton = Button("Dropbox:letterG", vec2(math.random(50,700), math.random(1000, 1500)))
+    gButton = Button("Dropbox:letterG", vec2(math.random(50,WIDTH-68), math.random(1000, 1500)))
     listOfLetters["g"] = gButton
-    hButton = Button("Dropbox:letterH", vec2(math.random(50,700), math.random(1000, 1500)))
+    hButton = Button("Dropbox:letterH", vec2(math.random(50,WIDTH-68), math.random(1000, 1500)))
     listOfLetters["h"] = hButton
-    iButton = Button("Dropbox:letterI", vec2(math.random(50,700), math.random(1000, 1500)))
+    iButton = Button("Dropbox:letterI", vec2(math.random(50,WIDTH-68), math.random(1000, 1500)))
     listOfLetters["i"] = iButton
-    jButton = Button("Dropbox:letterJ", vec2(math.random(50,700), math.random(1000, 1500)))
+    jButton = Button("Dropbox:letterJ", vec2(math.random(50,WIDTH-68), math.random(1000, 1500)))
     listOfLetters["j"] = jButton
-    kButton = Button("Dropbox:letterK", vec2(math.random(50,700), math.random(1000, 1500)))
+    kButton = Button("Dropbox:letterK", vec2(math.random(50,WIDTH-68), math.random(1000, 1500)))
     listOfLetters["k"] = kButton
-    lButton = Button("Dropbox:letterL", vec2(math.random(50,700), math.random(1000, 1500)))
+    lButton = Button("Dropbox:letterL", vec2(math.random(50,WIDTH-68), math.random(1000, 1500)))
     listOfLetters["l"] = lButton
-    mButton = Button("Dropbox:letterM", vec2(math.random(50,700), math.random(1000, 1500)))
+    mButton = Button("Dropbox:letterM", vec2(math.random(50,WIDTH-68), math.random(1000, 1500)))
     listOfLetters["m"] = mButton
-    nButton = Button("Dropbox:letterN", vec2(math.random(50,700), math.random(1000, 1500)))
+    nButton = Button("Dropbox:letterN", vec2(math.random(50,WIDTH-68), math.random(1000, 1500)))
     listOfLetters["n"] = nButton
-    oButton = Button("Dropbox:letterO", vec2(math.random(50,700), math.random(1000, 1500)))
+    oButton = Button("Dropbox:letterO", vec2(math.random(50,WIDTH-68), math.random(1000, 1500)))
     listOfLetters["o"] = oButton
-    pButton = Button("Dropbox:letterP", vec2(math.random(50,700), math.random(1000, 1500)))
+    pButton = Button("Dropbox:letterP", vec2(math.random(50,WIDTH-68), math.random(1000, 1500)))
     listOfLetters["p"] = pButton
-    qButton = Button("Dropbox:letterQ", vec2(math.random(50,700), math.random(1000, 1500)))
+    qButton = Button("Dropbox:letterQ", vec2(math.random(50,WIDTH-68), math.random(1000, 1500)))
     listOfLetters["q"] = qButton
-    rButton = Button("Dropbox:letterR", vec2(math.random(50,700), math.random(1000, 1500)))
+    rButton = Button("Dropbox:letterR", vec2(math.random(50,WIDTH-68), math.random(1000, 1500)))
     listOfLetters["r"] = rButton
-    sButton = Button("Dropbox:letterS", vec2(math.random(50,700), math.random(1000, 1500)))
+    sButton = Button("Dropbox:letterS", vec2(math.random(50,WIDTH-68), math.random(1000, 1500)))
     listOfLetters["s"] = sButton
-    tButton = Button("Dropbox:letterT", vec2(math.random(50,700), math.random(1000, 1500)))
+    tButton = Button("Dropbox:letterT", vec2(math.random(50,WIDTH-68), math.random(1000, 1500)))
     listOfLetters["t"] = tButton
-    uButton = Button("Dropbox:letterU", vec2(math.random(50,700), math.random(1000, 1500)))
+    uButton = Button("Dropbox:letterU", vec2(math.random(50,WIDTH-68), math.random(1000, 1500)))
     listOfLetters["u"] = uButton
-    vButton = Button("Dropbox:letterV", vec2(math.random(50,700), math.random(1000, 1500)))
+    vButton = Button("Dropbox:letterV", vec2(math.random(50,WIDTH-68), math.random(1000, 1500)))
     listOfLetters["v"] = vButton
-    wButton = Button("Dropbox:letterW", vec2(math.random(50,700), math.random(1000, 1500)))
+    wButton = Button("Dropbox:letterW", vec2(math.random(50,WIDTH-68), math.random(1000, 1500)))
     listOfLetters["w"] = wButton
-    xButton = Button("Dropbox:letterW", vec2(math.random(50,700), math.random(1000, 1500)))
+    xButton = Button("Dropbox:letterW", vec2(math.random(50,WIDTH-68), math.random(1000, 1500)))
     listOfLetters["x"] = xButton
-    yButton = Button("Dropbox:letterY", vec2(math.random(50,700), math.random(1000, 1500)))
+    yButton = Button("Dropbox:letterY", vec2(math.random(50,WIDTH-68), math.random(1000, 1500)))
     listOfLetters["y"] = yButton
-    zButton = Button("Dropbox:letterZ", vec2(math.random(50,700), math.random(1000, 1500)))
+    zButton = Button("Dropbox:letterZ", vec2(math.random(50,WIDTH-68), math.random(1000, 1500)))
     listOfLetters["z"] = zButton
+    
+    blankButton = Button("Dropbox:letter_blank", vec2(math.random(50,WIDTH-68), math.random(1000, 1500)))
+    listOfLetters[" "] = blankButton
+    
     -- you need this letter
-    apostropheButton = Button("Dropbox:letterApostrophe", vec2(math.random(50,700), math.random(1000, 1500)))
+    apostropheButton = Button("Dropbox:letterApostrophe", vec2(math.random(50,WIDTH-68), math.random(1000, 1500)))
     listOfLetters["'"] = apostropheButton
     
     --print ("This is the: " .. #listOfLetters)
@@ -148,7 +157,7 @@ function GameScene:init()
         table.insert(buttonLettersToFall, listOfLetters[listOfLettersInTheWord[letterCounter]])
         
         -- insert place holder for word at bottom
-        table.insert(theWordAtBottom, Button("Dropbox:letterA", vec2((-10+80*letterCounter), 40)))
+        table.insert(theWordAtBottom, Button("Dropbox:letter_blank", vec2((-10+80*letterCounter), 40)))
         
         letterCounter = letterCounter + 1
     end
@@ -184,9 +193,9 @@ function GameScene:init()
     
     --print(listOfLettersInTheWord)
     --sprite("Dropbox:Blue Cancel Button")
-    moveToExit = Button("Dropbox:Blue Cancel Button", vec2(WIDTH/2 -300, HEIGHT/2 +425))
+    moveToExit = Button("Dropbox:Blue Cancel Button", vec2(100, HEIGHT-100))
     
-    startTime = ElapsedTime 
+    --startTime = ElapsedTime 
     endTime = startTime +(timeLeftOnClock)  
     print("Start time: " .. startTime)
     print("End time: " .. endTime)
@@ -232,11 +241,13 @@ function GameScene:draw()
         local tempLocation = nil
         tempLocation = badButtonLettersToFall[badLetterCounter].buttonLocation
         --print(buttonLettersToFall[letterCounter].buttonLocation.y)
+    
         tempLocation.y = tempLocation.y - 2
                  
         -- move letter back up if they go off the bottom
         if (tempLocation.y < 100) then
             tempLocation.y = math.random(1024,1500)
+            tempLocation.x = math.random(50,WIDTH-68)
         end
         badButtonLettersToFall[badLetterCounter].buttonLocation = tempLocation
         
@@ -256,13 +267,14 @@ function GameScene:draw()
     currentTime = ElapsedTime
     --print(math.floor(currentTime))
     if(startTime + timeLeftOnClock < ElapsedTime) then
+        speech.stop()
         Scene.Change("timeup")
     end
     
     fill(255, 0, 0, 255)
     fontSize(55)
     font("ArialRoundedMTBold")
-    text("Time: " .. math.floor(currentTime), 590, 950)
+    text("Time: " .. math.floor((ElapsedTime-startTime)), WIDTH-150, HEIGHT-100)
     
     -- keep saying the word over and over again
     if (sayWordAgainTime < currentTime) then
@@ -301,6 +313,7 @@ function GameScene:touched(touch)
                 -- you need to go to another scene and the back, or you get errors on the tables
                 -- go to a scene that shows the word you just got right for 1/2 second
                 print("word correct!!!")
+                speech.stop()
                 Scene.Change("correctanswer")
             end
         end
@@ -328,7 +341,7 @@ function GameScene:touched(touch)
     
     
     if(moveToExit.selected == true) then
-        Scene.Change("prestart")
+        Scene.Change("mainmenu")
     end
 
 end
